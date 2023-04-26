@@ -7,7 +7,8 @@ Created on Wed Apr 26 12:25:11 2023
 import matplotlib.pyplot as plt
 import numpy as np
 
-def plot_signal(signal, title=f"{signal}", color="b", xl="Samples", yl="Amplitude", png_save=False, png_name, npy_load=False, npy_save=False, npy_file):
+def plot_signal(signal, title="signal", color="b", xl="Samples", yl="Amplitude", png_save=False, png_name="", npy_load=False, npy_save=False, npy_file=False, npy_input=""):
+
     """
     Plots a given signal and saves it in .png and/or .npy format if requested.
     
@@ -26,11 +27,13 @@ def plot_signal(signal, title=f"{signal}", color="b", xl="Samples", yl="Amplitud
     Returns:
         None
     """
+
     # Load the signal from a .npy file if requested
-    if npy_input == True:
+    if npy_input != "":
         signal = np.load(f"{npy_file}")
     
     # Plot the signal
+
     plt.figure()
     plt.plot(signal, f"{color}")
     plt.title(title)

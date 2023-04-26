@@ -47,7 +47,7 @@ def shift_signal(signal, sample_shift, amp_shift, shift_sample = False, shift_am
     
     # Shift amplitude
     if shift_amp == True:
-        signal = -1*signal
+        signal = shift_amp*signal
     
     return signal
 

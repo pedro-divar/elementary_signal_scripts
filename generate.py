@@ -2,7 +2,7 @@
 """
 Created on Tue Apr 25 23:52:16 2023
 
-@author: luca
+@author: Marco y Pedro
 """
 import numpy as np
 
@@ -27,6 +27,7 @@ def unit_impulse(length, amplitude=1, shift=0):
     """
     signal = np.zeros(length)
     signal[shift] = amplitude
+
     return signal
 
 
@@ -51,6 +52,7 @@ def heavy_side(length, amplitude=1, shift=0):
     """
     signal = np.zeros(length)
     signal[shift:] = amplitude
+
     return signal
 
 
@@ -77,6 +79,7 @@ def rectangular_pulse(length, amplitude=1, shift=0, width=1):
     """
     signal = np.zeros(length)
     signal[shift:shift+width] = amplitude
+
     return signal
 
 
@@ -104,6 +107,7 @@ def triangular_pulse(length, amplitude=1, shift=0, width=1):
     signal = np.zeros(length)
     t = np.linspace(-width/2, width/2, width)
     signal[shift:shift+width] = amplitude * (1 - np.abs(t) / (width/2))
+
     return signal
 
 def exponential_signal(length, amplitude = 1, decay_rate = 1):
@@ -127,6 +131,7 @@ def exponential_signal(length, amplitude = 1, decay_rate = 1):
     """
     n = np.arange(length)
     signal = amplitude * np.exp(-decay_rate * n)
+
     return signal
 
 def normal_signal(length, mean, std_dev):
@@ -149,4 +154,5 @@ def normal_signal(length, mean, std_dev):
         random normal signal.
     """
     signal = np.random.normal(mean, std_dev, size=length)
+
     return signal
