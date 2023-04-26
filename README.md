@@ -1,5 +1,6 @@
 # elementary_signal_scripts
 Python scripts for processing and generating elementary signals.
+
 This repository contains a collection of Python scripts developed for the processing of elementary signals. The scripts are organized into three modules:
 
 1) generate.py: Contains functions for generating discrete-time signals such as unit impulse, unit step, rectangular pulse, triangular pulse, exponential signal, and random signal.
