@@ -25,6 +25,7 @@ def unit_impulse(length, amplitude=1, shift=0):
         A 1D numpy array of length `length` containing the generated
         unit impulse signal.
     """
+
     signal = np.zeros(length)
     signal[shift] = amplitude
 
@@ -110,7 +111,7 @@ def triangular_pulse(length, amplitude=1, shift=0, width=1):
 
     return signal
 
-def exponential_signal(length, amplitude = 1, decay_rate = 1):
+def exponential_signal(start, end, amplitude = 1, decay_rate = 1):
     """
     Generate an exponential signal.
 
@@ -129,30 +130,14 @@ def exponential_signal(length, amplitude = 1, decay_rate = 1):
         A 1D numpy array of length `length` containing the generated
         exponential signal.
     """
-    n = np.arange(length)
-    signal = amplitude * np.exp(-decay_rate * n)
+    samples = np.arange(start, end+1, 1)
+    signal = amplitude * np.exp(decay_rate * samples)
 
-    return signal
+    return samples, signal
 
-def normal_signal(length, mean, std_dev):
-    """
-    Generate a random normal signal.
+def normal_signal(start, end, mean, std_dev):
+ 
+    samples = np.arange(start,end+1,1)
+    signal = np.random.normal(mean, std_dev, size=end-start+1)
 
-    Parameters
-    ----------
-    length : int
-        Length of the signal.
-    mean : float
-        Mean of the normal distribution.
-    std_dev : float
-        Standard deviation of the normal distribution.
-
-    Returns
-    -------
-    signal : numpy.ndarray
-        A 1D numpy array of length `length` containing the generated
-        random normal signal.
-    """
-    signal = np.random.normal(mean, std_dev, size=length)
-
-    return signal
+    return samples, signal
